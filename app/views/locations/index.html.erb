@@ -1,15 +1,34 @@
-<div clas="row">
-  <div class="col s3">
-    Search Results
-    <div><%= @response.businesses[0].name %></div>
-    <div><%= @response.businesses[1].name %></div>
-    <div><%= @response.businesses[2].name %></div>
-    <div><%= @response.businesses[3].name %></div>
-  </div>
-  <div class="col s9">
-    <div class="container">
-      <div id="map"></div>
-      <!-- Page Content goes here -->
+<div class="row">
+  <nav>
+    <div class="nav-wrapper grey darken-2">
+      <%#= form_for @response do |f| %>
+      <div class="input-field col s4">
+        <input placeholder="Where do you want to go?" id="search" type="text">
+        <label for="search"><i class="material-icons"></i></label>
+        <i class="material-icons">close</i>
+      </div>
+      <div class="input-field col s4">
+        <input placeholder="What are you looking for?" id="searchType" type="text">
+      </div>
+      <div class="input-field col s4">
+        <%#= f.submit class:"submit"%>
+      </div>
+      <%#end%>
     </div>
+  </nav>
+</div>
+
+<div class="row">
+  <div class="col s3 grey lighten-3" height=max>
+    <ul class="center-align">
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"></i>Search Results</div>
+          <div class="collapsible-body" id="Search API results Div"><%= @response.businesses[0].name %></div>
+        </li>
+      </ul>
+    </ul>
+  </div>
+  <div class="col s9 grey lighten-3" id="map">
   </div>
 </div>

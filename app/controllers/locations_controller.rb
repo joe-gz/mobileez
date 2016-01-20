@@ -1,7 +1,11 @@
 class LocationsController < ApplicationController
 
   def index
-    @response = Yelp.client.search('San Francisco')
+    if params[:search]
+      @response = Yelp.client.search([:search])
+    else
+      @response = Yelp.client.search('Washington DC')
+    end
   end
 
 end

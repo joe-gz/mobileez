@@ -11,9 +11,9 @@ class Yelp
       config.token_secret = ENV['YOUR_TOKEN_SECRET']
     end
 
-    url = "https://api.yelp.com/v2/search?term=food&location=San+Francisco"
-
-    response = HTTParty.get(url)
+    # url = "https://api.yelp.com/v2/search?term=food&location=San+Francisco"
+    #
+    # response = HTTParty.get(url)
 
     # instantiating abv, style, and photo_url by parsing through the JSON response
   end
