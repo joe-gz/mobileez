@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'mapbox-rails'
+gem 'leaflet-rails', require: 'leaflet-rails'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'materialize-sass'

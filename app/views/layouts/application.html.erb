@@ -3,8 +3,13 @@
 <head>
   <title>Mobileez</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <!-- Leaflet stylesheet -->
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+
 </head>
 <body>
   <nav>
@@ -21,10 +26,20 @@
     </div>
   </nav>
 
+    <div class="container">
+      <!-- Page Content goes here -->
+    </div>
+
+    <div class="container">
+      <div id="map"></div>
+      <!-- Page Content goes here -->
+    </div>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
   <%= yield %>
 
+  <!-- Leaflet script -->
 </body>
 </html>
