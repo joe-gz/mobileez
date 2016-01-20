@@ -1,1 +1,7 @@
 @import "materialize";
+// *= require mapbox;
+// *= require leaflet
+
+#map {
+  height: 400px;
+}
