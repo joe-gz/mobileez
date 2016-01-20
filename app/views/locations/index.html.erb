@@ -1,5 +1,15 @@
-Hello World
-
-<div>
-  <%= @response.businesses[0].name %>
+<div clas="row">
+  <div class="col s3">
+    Search Results
+    <div><%= @response.businesses[0].name %></div>
+    <div><%= @response.businesses[1].name %></div>
+    <div><%= @response.businesses[2].name %></div>
+    <div><%= @response.businesses[3].name %></div>
+  </div>
+  <div class="col s9">
+    <div class="container">
+      <div id="map"></div>
+      <!-- Page Content goes here -->
+    </div>
+  </div>
 </div>

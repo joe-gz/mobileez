@@ -2,6 +2,11 @@
 // *= require mapbox;
 // *= require leaflet
 
+* {
+  box-sizing: border-box;
+}
+
 #map {
-  height: 400px;
+  height: 35em;
+  width: 100%;
 }
