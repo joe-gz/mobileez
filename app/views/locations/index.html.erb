@@ -1,19 +1,21 @@
 <div class="row">
   <nav>
     <div class="nav-wrapper grey darken-2">
-      <%#= form_for @response do |f| %>
+      <%= form_for @response do |f| %>
       <div class="input-field col s4">
-        <input placeholder="Where do you want to go?" id="search" type="text">
-        <label for="search"><i class="material-icons"></i></label>
+        <!-- <input placeholder="Where do you want to go?" id="search" type="text">
+        <label for="search"><i class="material-icons"></i></label> -->
+        <%= f.label :name %>
+        <%= f.text_field :name%>
         <i class="material-icons">close</i>
       </div>
       <div class="input-field col s4">
         <input placeholder="What are you looking for?" id="searchType" type="text">
       </div>
       <div class="input-field col s4">
-        <%#= f.submit class:"submit"%>
+        <%= f.submit class:"submit"%>
       </div>
-      <%#end%>
+      <% end %>
     </div>
   </nav>
 </div>
@@ -24,7 +26,7 @@
       <ul class="collapsible" data-collapsible="accordion">
         <li>
           <div class="collapsible-header"></i>Search Results</div>
-          <div class="collapsible-body" id="Search API results Div"><%= @response.businesses[0].name %></div>
+          <div class="collapsible-body" id="Search API results Div"><%= @response.name %></div>
         </li>
       </ul>
     </ul>
