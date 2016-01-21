@@ -32,13 +32,14 @@
   <%= yield %>
 
   <footer class="page-footer grey darken-3">
+    <%= link_to "Account Settings", edit_user_registration_path(current_user) %>
     <div class="footer-copyright">
       <div class="container">
-           © 2016 Mobilezz
-      <a class="grey-text text-lighten-4 right" href="#!">About</a>
+        © 2016 Mobilezz
+        <a class="grey-text text-lighten-4 right" href="#!">About</a>
       </div>
     </div>
- </footer>
+  </footer>
 
 
 </body>
