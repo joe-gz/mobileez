@@ -1,6 +1,6 @@
 require 'yelp'
 
-class Yelp
+class Yelp < ActiveRecord::Base
 
   def initialize
 
