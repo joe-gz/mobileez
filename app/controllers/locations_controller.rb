@@ -8,6 +8,8 @@ class LocationsController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @reviews = Review.all.where(location_id: params[:id])
     if params[:id]
       @yelp = Yelp.client.business(params[:id])
     end
