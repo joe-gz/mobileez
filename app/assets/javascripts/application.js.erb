@@ -24,8 +24,8 @@ $(document).ready(function(){
     maxZoom: 18,
 
     // Replace the below properties with your `Map ID` and `Default Public Token` values you saved earlier, respectively.
-    id: "ID",
-    accessToken: "ACCESS_TOKEN"
+    id: "rebeccae.ob42lgga",
+    accessToken: "pk.eyJ1IjoicmViZWNjYWUiLCJhIjoiY2locW50eDhwMDRxaXRnbTQ4NGZqM3F4ZiJ9.bdeGen8FhiVQqFbI7Vz0lA"
   }).addTo(map);
 
   // map.locate({ setView: true, enableHighAccuracy: true }).on('locationfound', function(e){
@@ -39,22 +39,23 @@ $(document).ready(function(){
   var coords = []
   var travelLineCoords = []
 
-    event.preventDefault();
-    var keyword = $("input[name='name']").val();
-    var url = "http://api.opencagedata.com/geocode/v1/json?q="+keyword+"&key=API_KEY"
-    $.ajax({
-      url: url,
-      type: "GET",
-      dataType: "json"
-    }).done ( function(response){
-      // call movie function below to append movie titles
-      searchArray.push(response.results[0])
-      addressRequest(response.results[0]);
-    }).fail ( function (){
-      console.log("fail");
-    }).always( function(){
-      console.log("Something happens");
-    })
+  event.preventDefault();
+  var keyword = $("input[name='name']").val();
+  var url = "http://api.opencagedata.com/geocode/v1/json?q="+keyword+"&key="+"57ff96323250b4cd2625e92b2236f446"
+  $.ajax({
+    url: url,
+    type: "GET",
+    dataType: "json"
+  }).done ( function(response){
+    // call movie function below to append movie titles
+    searchArray.push(response.results[0])
+    addressRequest(response.results[0]);
+  }).fail ( function (){
+    console.log("fail");
+  }).always( function(){
+    console.log("<%ENV['API_KEY']%>");
+    console.log("Something happens");
+  })
 
   var addressRequest = function (response){
     var lat = parseFloat(response.geometry.lat);
@@ -62,7 +63,6 @@ $(document).ready(function(){
     var comment = $("input[name='comment']").val();
     var locationDiv = "<div>Location: "+response.formatted+"</div>";
     var coordinateDiv = "<div>Coordinates: "+[lat,long]+"</div>";
-    var commentDiv = "<div>Comment: "+comment+"</div>";
 
     var travelLine = {
       "type": "Feature",
@@ -87,7 +87,7 @@ $(document).ready(function(){
     L.marker([lat,long]).addTo(map).bindPopup(clickPopup)
     clickPopup
     .setLatLng([lat,long])
-    .setContent(locationDiv+coordinateDiv+commentDiv)
+    .setContent(locationDiv+coordinateDiv)
     .openOn(map);
   }
 
