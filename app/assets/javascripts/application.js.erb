@@ -41,7 +41,7 @@ $(document).ready(function(){
 
   event.preventDefault();
   var keyword = $("input[name='name']").val();
-  var url = "http://api.opencagedata.com/geocode/v1/json?q="+keyword+"&key="+"57ff96323250b4cd2625e92b2236f446"
+  var url = "//api.opencagedata.com/geocode/v1/json?q="+keyword+"&key="+"57ff96323250b4cd2625e92b2236f446"
   $.ajax({
     url: url,
     type: "GET",
