@@ -8,6 +8,7 @@ gem 'materialize-sass'
 gem 'yelp', require: 'yelp'
 gem 'figaro'
 gem 'pry'
+gem 'ratyrate'
 group :production do
   gem 'rails_12factor'
 end

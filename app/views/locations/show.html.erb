@@ -7,14 +7,23 @@
       <%= f.text_field :comment%>
     </div>
     <div class="form-group">
-      <%= f.label :score %>
-      <%= f.text_field :score%>
+      Table  : <%= rating_for @review, "table_score" %>
+      Entrance : <%= rating_for @review, "entrance_score" %>
+      Parking  : <%= rating_for @review, "parking_score" %>
+      Bathroom  : <%= rating_for @review, "bathroom_score" %>
       <%= f.hidden_field :location_id, value: @yelp.business.id %>
     </div>
     <%= f.submit%>
   <%end%>
 <%end%>
+<ul>
 <%@reviews.each do |review| %>
-  <%=review.comment %>
-  <%=review.score %>
+  <p>
+    <%=review.comment %>
+  </p>
+  <li>Table:<%=review.table_score %></li>
+  <li>Entrance:<%=review.entrance_score %></li>
+  <li>Parking:<%=review.parking_score %></li>
+  <li>Bathroom:<%=review.bathroom_score %></li>
 <%end%>
+</ul>
