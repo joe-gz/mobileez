@@ -11,13 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery
 //= require materialize-sprockets
 //= require_tree .
 $(document).ready(function(){
-    
   var map = L.map('map').setView([38.9038829, -77.0360032], 15);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -91,8 +91,6 @@ $(document).ready(function(){
     .setContent(locationDiv+coordinateDiv)
     .openOn(map);
   }
-
-});
 
 /*!
  * @copyright &copy; Kartik Visweswaran, Krajee.com, 2013 - 2016
@@ -681,3 +679,10 @@ $(document).ready(function(){
 
     });
 }));
+
+
+
+
+
+
+});
