@@ -17,6 +17,7 @@
 //= require materialize-sprockets
 //= require_tree .
 $(document).ready(function(){
+    
   var map = L.map('map').setView([38.9038829, -77.0360032], 15);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -671,13 +672,12 @@ $(document).ready(function(){
      */
     $(document).ready(function () {
 
-      $("#input-1").rating();
-      $("#input-2").rating();
-      $("#input-3").rating();
-      $("#input-4").rating();
+
         var $input = $('input.rating');
         if ($input.length) {
             $input.removeClass('rating-loading').addClass('rating-loading').rating();
         }
+
+
     });
 }));
