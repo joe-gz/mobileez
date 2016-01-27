@@ -1,6 +1,10 @@
 @import "materialize";
+
+
 // *= require mapbox;
 // *= require leaflet
+
+
 
 * {
   box-sizing: border-box;
@@ -12,4 +16,96 @@
 
 .notice,.alert {
   margin:0;
+}
+.bname {
+  font-weight: bold;
+}
+
+.address {
+  font-size: 16px;
+  line-height: normal;
+}
+
+.rotate {
+  /* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+font-size: 18px;
+}
+
+.promo-caption {
+  font-size: 18px;
+  line-height: normal;
+}
+
+.promo-rating {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: normal;
+}
+
+#businessimg {
+  padding-top: 20px;
+}
+#top {
+  padding-bottom: 20px;
+}
+
+.overall {
+  color: #01C44C;
+  font-size: 18px;
+  line-height: normal;
+
+}
+
+.btn-content {
+  font-size: 10px;
+}
+
+#promosection {
+  padding-top: 40px;
+}
+
+.wrap {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  width: 250px;
+  font-size: 18px;
+  color: #000000;
+  margin: 0.3em;
+  padding: .2em;
+  overflow: hidden;
+  position: relative;
+  border-style: solid;
+  border-color: #696969;
+  border-width: 1px;
+  text-align: center;
+
+}
+
+#menu{
+    list-style: none;
+    font-size: 20px;
+    padding-top: 20px;
+    letter-spacing: 3px;
+}
+#menu li{
+    display: inline;
+    padding: 0 10px;
+    border-left: solid 1px black;
+}
+#menu li:first-child{
+    border-left: none;
 }
