@@ -10,7 +10,12 @@ class LocationsController < ApplicationController
   def show
     @review = Review.new
     @reviews = Review.all.where(location_id: params[:id])
-    @score = (@reviews.sum("parking_score", "entrance_score") + @reviews.sum("entrance_score") + @reviews.sum("table_score") + @reviews.sum("bathroom_score"))/@reviews.all.count
+    @score = (@reviews.sum("parking_score") + @reviews.sum("entrance_score") + @reviews.sum("table_score") + @reviews.sum("bathroom_score"))/@reviews.all.count
+    @parking_score = (@reviews.sum("parking_score"))/@reviews.all.count
+    @entrance_score = (@reviews.sum("entrance_score"))/@reviews.all.count
+    @bathroom_score = (@reviews.sum("bathroom_score"))/@reviews.all.count
+    @table_score = (@reviews.sum("table_score"))/@reviews.all.count
+
     if params[:id]
       @yelp = Yelp.client.business(params[:id])
     end

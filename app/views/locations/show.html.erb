@@ -1,5 +1,12 @@
 <img src="<%= @yelp.business.image_url%>" alt="restaurant image" />
-<%= @yelp.business.name %>(<%= @score %>)
+<%= @yelp.business.name %>
+<ul>
+  Overall Score:<%= @score %>
+  Parking: <%= @parking_score %>
+  Table: <%= @table_score %>
+  Bathroom: <%= @bathroom_score %>
+  Entrance: <%= @entrance_score %>
+</ul>
 <% if @score >= 15 %>
 Go
 <% elsif @score < 15 && @score >= 12 %>
