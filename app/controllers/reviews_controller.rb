@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  
 
   def index
 
@@ -18,7 +19,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:comment,:score,:location_id)
+    params.require(:review).permit(:comment,:score,:location_id,:parking_score,:entrance_score,:table_score,:bathroom_score)
   end
 
 end

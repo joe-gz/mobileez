@@ -10,6 +10,7 @@ gem 'materialize-sass'
 gem 'yelp', require: 'yelp'
 gem 'figaro'
 gem 'pry'
+gem 'jquery-turbolinks'
 group :production do
   gem 'rails_12factor'
 end
