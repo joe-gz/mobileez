@@ -4,6 +4,9 @@
   <title>Mobileez</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
@@ -34,7 +37,7 @@
 
   <%= yield %>
 
-  <footer class="page-footer grey darken-3">
+  <!-- <footer class="page-footer grey darken-3">
     <%= link_to "Account Settings", edit_user_registration_path(current_user) %>
     <div class="footer-copyright">
       <div class="container">
@@ -42,8 +45,7 @@
         <a class="grey-text text-lighten-4 right" href="#!">About</a>
       </div>
     </div>
-  </footer>
-
+  </footer> -->
 
 </body>
 </html>

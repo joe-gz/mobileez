@@ -1,0 +1,14 @@
+<div class="review clearfix">
+	<div class="review_content">
+		<p class="review_name"><strong><%= review.name %></strong></p>
+		<p class="review_body"><%= review.body %></p>
+		<p class="review_time"><%= time_ago_in_words(review.created_at) %> Ago</p>
+	</div>
+
+	<% if user_signed_in? %>
+	<p><%= link_to 'Delete', [review.location, review],
+								  method: :delete,
+								  class: "button",
+								 	data: { confirm: 'Are you sure?' } %></p>
+ 	<% end %>
+</div>
