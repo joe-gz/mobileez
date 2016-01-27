@@ -1,5 +1,12 @@
 <img src="<%= @yelp.business.image_url%>" alt="restaurant image" />
-<%= @yelp.business.name %>
+<%= @yelp.business.name %>(<%= @score %>)
+<% if @score >= 15 %>
+Go
+<% elsif @score < 15 && @score >= 12 %>
+Maybe Go
+<% elsif @score < 12 %>
+no go
+  <%end%>
 <% if current_user %>
   <%= form_for [@review] do |f| %>
     <div class="form-group">
@@ -10,12 +17,12 @@
     <%= f.label :table_score %>
     <%= f.range_field :table_score, in: 1..5, class:"rating",id:"input-1", data: {min:"0", max:"5", step:"1"}%>
     <%= f.label :entrance_score %>
-     <%= f.range_field :entrance_score, in: 1..5, class:"rating",id:"input-2", data: {min:"0", max:"5", step:"1"}%>
-     <%= f.label :parking_score %>
-     <%= f.range_field :parking_score, in: 1..5, class:"rating",id:"input-3", data: {min:"0", max:"5", step:"1"}%>
-     <%= f.label :bathroom_score %>
-     <%= f.range_field :bathroom_score, in: 1..5, class:"rating",id:"input-4", data: {min:"0", max:"5", step:"1"}%>
-      <%= f.hidden_field :location_id, value: @yelp.business.id %>
+    <%= f.range_field :entrance_score, in: 1..5, class:"rating",id:"input-2", data: {min:"0", max:"5", step:"1"}%>
+    <%= f.label :parking_score %>
+    <%= f.range_field :parking_score, in: 1..5, class:"rating",id:"input-3", data: {min:"0", max:"5", step:"1"}%>
+    <%= f.label :bathroom_score %>
+    <%= f.range_field :bathroom_score, in: 1..5, class:"rating",id:"input-4", data: {min:"0", max:"5", step:"1"}%>
+    <%= f.hidden_field :location_id, value: @yelp.business.id %>
     </div>
     <%= f.submit%>
   <%end%>
@@ -23,9 +30,10 @@
 <ul>
   <%@reviews.each do |review| %>
     <p><%=review.comment %> </p>
-       <li>Table: <%=review.table_score %>/5 </li>
-       <li>Entry: <%=review.entrance_score %>/5 </li>
-       <li>Parking: <%=review.parking_score %>/5 </li>
-       <li>Bathroom: <%=review.bathroom_score %>/5 </li>
+      <li>Total: <%=review.table_score + review.entrance_score + review.parking_score + review.bathroom_score %>/20 </li>
+      <li>Table: <%=review.table_score %>/5 </li>
+      <li>Entry: <%=review.entrance_score %>/5 </li>
+      <li>Parking: <%=review.parking_score %>/5 </li>
+      <li>Bathroom: <%=review.bathroom_score %>/5 </li>
   <%end%>
 </ul>
