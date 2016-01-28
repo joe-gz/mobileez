@@ -1,3 +1,4 @@
+<div class="container">
 <div class="row" id="businessimg">
   <div class="col s3">
     <img src="<%= @yelp.business.image_url%>" alt="restaurant image" height="250" width="250" />
@@ -31,9 +32,15 @@
       </div>
       <div class="col s1">
         <div class="center overall">
-          <i class="fa fa-wheelchair fa-lg"></i>
+          <% if @score >= 15 %>
+          <i class="fa fa-wheelchair fa-2x" id="excellent"></i>
+          <% elsif @score < 15 && @score >= 12 %>
+          <i class="fa fa-wheelchair fa-2x" id="limited"></i>
+          <% elsif @score < 12 %>
+          <i class="fa fa-wheelchair fa-2x" id="poor"></i>
+            <%end%>
           <p class="promo-caption">Overall</p>
-          <p class="promo-rating">5/5</p>
+          <p class="promo-rating"><%= @score %></p>
         </div>
       <div>
       <div class="col s1">
@@ -48,36 +55,36 @@
           <div class="center promo">
             <i class="fa fa-cutlery fa-2x"></i>
             <p class="promo-caption">Table</p>
-            <p class="promo-rating">5/5</p>
+            <p class="promo-rating"><%= @table_score %> / 5</p>
           </div>
         </div>
         <div class="col s3">
           <div class="center promo">
             <i class="fa fa-wheelchair fa-2x"></i>
             <p class="promo-caption">Ramp</p>
-            <p class="promo-rating">5/5</p>
+            <p class="promo-rating"><%= @entrance_score %> / 5</p>
           </div>
         </div>
         <div class="col s3">
           <div class="center promo">
             <i class="fa fa-car fa-2x"></i>
             <p class="promo-caption">Parking</p>
-            <p class="promo-rating">5/5</p>
+            <p class="promo-rating"><%= @parking_score %> / 5</p>
           </div>
         </div>
         <div class="col s3">
           <div class="center promo">
             <i class="fa fa-venus-mars fa-2x"></i>
             <p class="promo-caption">Restrooms</p>
-            <p class="promo-rating">5/5</p>
+            <p class="promo-rating"><%= @bathroom_score %> / 5</p>
           </div>
         </div>
 
       </div>
-      <ul class="wrap">
-        <li><%= button_to "WRITE A REVIEW" , {action: "create"}, {class: "waves-effect button grey lighten-1"} %></li>
-        <li><%= button_to "FAVORITE" , {action: "new"}, {class: "waves-effect button grey lighten-1"} %></li>
-      </ul>
+      <div class="wrap">
+        <%= button_to "WRITE A REVIEW" , {action: "create"}, {class: "waves-effect button grey lighten-1"} %>
+        <%= button_to "FAVORITE" , {action: "new"}, {class: "waves-effect button grey lighten-1"} %>
+      </div>
       <ul class="center" id="menu">
         <li><%= link_to "Reviews", reviews_path %></li>
         <li><a href="#">Description</a></li>
@@ -87,27 +94,19 @@
 
 
 
-<ul>
-  Overall Score:<%= @score %>
-  Parking: <%= @parking_score %>
-  Table: <%= @table_score %>
-  Bathroom: <%= @bathroom_score %>
-  Entrance: <%= @entrance_score %>
-</ul>
+
 <% if @score >= 15 %>
-Go
+<i class="fa fa-wheelchair fa-3x" id="excellent">Excellent Accessibility</i>
 <% elsif @score < 15 && @score >= 12 %>
-Maybe Go
+<i class="fa fa-wheelchair fa-3x" id="limited">Limitied Accessibility</i>
 <% elsif @score < 12 %>
-no go
+<i class="fa fa-wheelchair fa-3x" id="poor">Poor Accessibility</i>
   <%end%>
 
+<div class="reviewbox">
 <% if current_user %>
   <%= form_for [@review] do |f| %>
-    <div class="form-group">
-      <%= f.label :comment %>
-      <%= f.text_field :comment%>
-    </div>
+
     <div class="form-group">
     <%= f.label :table_score %>
     <%= f.range_field :table_score, in: 1..5, class:"rating",id:"input-1", data: {min:"0", max:"5", step:"1"}%>
@@ -119,16 +118,26 @@ no go
     <%= f.range_field :bathroom_score, in: 1..5, class:"rating",id:"input-4", data: {min:"0", max:"5", step:"1"}%>
     <%= f.hidden_field :location_id, value: @yelp.business.id %>
     </div>
+    <div class="form-group">
+      <%= f.text_area :comment, placeholder: "Write a review...", :id => "comment_area" %>
+    </div>
     <%= f.submit%>
   <%end%>
 <%end%>
-<ul>
+</div>
+
+
+<ul class="collection">
   <%@reviews.each do |review| %>
-    <p><%=review.comment %> </p>
-      <li>Total: <%=review.table_score + review.entrance_score + review.parking_score + review.bathroom_score %>/20 </li>
-      <li>Table: <%=review.table_score %>/5 </li>
-      <li>Entry: <%=review.entrance_score %>/5 </li>
-      <li>Parking: <%=review.parking_score %>/5 </li>
-      <li>Bathroom: <%=review.bathroom_score %>/5 </li>
+    <li class="collection-item avatar">
+      <i class="fa fa-user fa-2x"></i>
+      <p><%=review.comment %></p><br>
+      Total: <%=review.table_score + review.entrance_score + review.parking_score + review.bathroom_score %>/20 <br>
+      Table: <%=review.table_score %>/5 <br>
+      Entry: <%=review.entrance_score %>/5 <br>
+      Parking: <%=review.parking_score %>/5 <br>
+      Bathroom: <%=review.bathroom_score %>/5 <br>
+    </li>
   <%end%>
 </ul>
+</div>

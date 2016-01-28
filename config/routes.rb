@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :locations
   resources :users do
     resources :reviews
+    
   end
   resources :reviews
 

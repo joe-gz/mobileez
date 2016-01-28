@@ -3,6 +3,7 @@
 <head>
   <title>Mobileez</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="/assets/star-rating.min.css" media="all" rel="stylesheet" />
   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -20,7 +21,9 @@
 <body>
   <nav>
     <div class="nav-wrapper grey darken-3">
-      <a href="/" class="brand-logo">Mobileez</a>
+      <div class="blogo">
+      <a href="/" class="brand-logo"><span style="font-size:18pt">M</span><span style="font-size:22pt">0</span><span style="font-size:24pt">B</span><span style="font-size:26pt">I</span><span style="font-size:28pt">L</span><span style="font-size:32pt">E</span><span style="font-size:34pt">E</span><span style="font-size:36pt">Z</span></a>
+    </div>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if current_user %>
         <li><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></li>
