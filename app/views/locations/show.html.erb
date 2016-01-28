@@ -33,7 +33,18 @@
         <div class="center overall">
           <i class="fa fa-wheelchair fa-lg"></i>
           <p class="promo-caption">Overall</p>
-          <p class="promo-rating">5/5</p>
+
+          <p class="promo-rating"><%= @score %>/20</p>
+          <p class="promo-caption"><% if @score %>
+          <% if @score > 15 %>
+          Go
+          <% elsif @score <= 15 && @score > 9 %>
+          Maybe Go
+          <% elsif @score <= 8 %>
+          no go
+            <%end%>
+            <%end%>
+          </p>
         </div>
       <div>
       <div class="col s1">
@@ -48,28 +59,28 @@
           <div class="center promo">
             <i class="fa fa-cutlery fa-2x"></i>
             <p class="promo-caption">Table</p>
-            <p class="promo-rating">5/5</p>
+            <p class="promo-rating"><%= @table_score %>/5</p>
           </div>
         </div>
         <div class="col s3">
           <div class="center promo">
             <i class="fa fa-wheelchair fa-2x"></i>
             <p class="promo-caption">Ramp</p>
-            <p class="promo-rating">5/5</p>
+            <p class="promo-rating"><%= @entrance_score %>/5</p>
           </div>
         </div>
         <div class="col s3">
           <div class="center promo">
             <i class="fa fa-car fa-2x"></i>
             <p class="promo-caption">Parking</p>
-            <p class="promo-rating">5/5</p>
+            <p class="promo-rating"><%= @parking_score %>/5</p>
           </div>
         </div>
         <div class="col s3">
           <div class="center promo">
             <i class="fa fa-venus-mars fa-2x"></i>
             <p class="promo-caption">Restrooms</p>
-            <p class="promo-rating">5/5</p>
+            <p class="promo-rating"><%= @bathroom_score %>/5</p>
           </div>
         </div>
 
@@ -87,20 +98,7 @@
 
 
 
-<ul>
-  Overall Score:<%= @score %>
-  Parking: <%= @parking_score %>
-  Table: <%= @table_score %>
-  Bathroom: <%= @bathroom_score %>
-  Entrance: <%= @entrance_score %>
-</ul>
-<% if @score >= 15 %>
-Go
-<% elsif @score < 15 && @score >= 12 %>
-Maybe Go
-<% elsif @score < 12 %>
-no go
-  <%end%>
+
 
 <% if current_user %>
   <%= form_for [@review] do |f| %>
