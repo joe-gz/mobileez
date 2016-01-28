@@ -210,7 +210,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   figaro
-  font-awesome-sass
+  font-awesome-sass (~> 4.5.0)
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks

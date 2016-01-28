@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'font-awesome-sass'
+
+gem 'font-awesome-sass', '~> 4.5.0'
 gem "paperclip", "~> 4.3"
 gem 'mapbox-rails'
 gem 'leaflet-rails', require: 'leaflet-rails'
