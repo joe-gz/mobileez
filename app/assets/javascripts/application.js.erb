@@ -680,9 +680,7 @@ $(document).ready(function() {
 
 
         var $input = $('input.rating');
-        console.log($input);
-        if ($input.length)
-          console.log($input);
+        if ($input.length) {
             $input.removeClass('rating-loading').addClass('rating-loading').rating();
         }
 
