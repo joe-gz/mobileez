@@ -4,12 +4,13 @@
     <img src="<%= @yelp.business.image_url%>" alt="restaurant image" height="250" width="250" />
   </div>
 
-  <div class="col s9">
+  <div class="col s8">
     <div class="row" id="top">
       <div class="col s9">
         <h4 class="bname"><%= @yelp.business.name %><h4>
-        <p class="address">1234 Main Street<br>Washington, DC 20001</p>
+        <p class="address"><%= @yelp.business.location.display_address[0] %>, <br> <%= @yelp.business.location.display_address[1] %>, <br> <%= @yelp.business.location.display_address[2] %>, <br> <%= @yelp.business.phone %></p>
       </div>
+
       <div class="col s1">
         <!-- Blue button setup-->
         <!-- Modal Trigger -->
@@ -30,7 +31,7 @@
         </div>
 
       </div>
-      <div class="col s1">
+      <div class="col s2">
         <div class="center overall">
           <% if @score %>
           <% if @score >= 15 %>
@@ -50,6 +51,7 @@
       </div>
     </div>
   </div>
+</div>
 
 
       <div class="row" id="promosection">
@@ -88,7 +90,7 @@
         <%= button_to "FAVORITE" , {action: "new"}, {class: "waves-effect button grey lighten-1"} %>
       </div>
       <ul class="center" id="menu">
-        <li><%= link_to "Reviews", reviews_path %></li>
+        <li><a href="#collection">Reviews</a></li>
         <li><a href="#">Description</a></li>
       </ul>
   </div>

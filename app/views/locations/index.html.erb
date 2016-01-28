@@ -27,8 +27,15 @@
           <% if @yelp %>
           <% @yelp.businesses.each do |business|%>
           <li>
+            <img src="<%=business.image_url%>" alt="restaurant image" height="100" width="100" />
+          </li>
+          <li>
             <a href="locations/<%= business.id %>"> <%= business.name %> </a>
           </li>
+          <li>
+            <%= business.location.display_address[0] %>, <br> <%= business.location.display_address[1] %>, <br> <%= business.location.display_address[2] %>
+          </li>
+
           <% end %>
           <% end %>
           <!-- </div> -->

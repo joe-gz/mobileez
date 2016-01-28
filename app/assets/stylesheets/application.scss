@@ -61,12 +61,13 @@ font-size: 18px;
 
 .reviewbox {
   border-color: #000000;
-  background-color: black;
+  text-align: center;
+
 }
 
 textarea#comment_area {
-  width: 900px;
-  height: 300px;
+  width: 600px;
+  height: 200px;
 
 }
 #top {
@@ -83,7 +84,7 @@ textarea#comment_area {
 }
 
 #limited {
-  color: #F7F736;
+  color: #fdd835;
 }
 
 #poor {
@@ -101,6 +102,10 @@ textarea#comment_area {
 .wrap {
   margin-top: 30px;
   text-align: center;
+
+}
+.wrap form {
+  display: inline-block;
 }
 
 .button {
@@ -143,6 +148,7 @@ textarea#comment_area {
   padding-top: 20px;
 
 }
+
 
 // star rating
 
