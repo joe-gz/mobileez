@@ -25,6 +25,8 @@
       <a href="/" class="brand-logo"><span style="font-size:18pt">M</span><span style="font-size:22pt">0</span><span style="font-size:24pt">B</span><span style="font-size:26pt">I</span><span style="font-size:28pt">L</span><span style="font-size:32pt">E</span><span style="font-size:34pt">E</span><span style="font-size:36pt">Z</span></a>
     </div>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to 'About', locations_about_path %></li>
+        <li><%= link_to 'Terms and Conditions', locations_terms_path %></li>
         <% if current_user %>
         <li><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></li>
         <% else %>

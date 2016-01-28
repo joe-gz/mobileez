@@ -28,6 +28,11 @@ class LocationsController < ApplicationController
 
   end
 
+  def about
+  end
+
+  def terms
+  end
   private
 
 
